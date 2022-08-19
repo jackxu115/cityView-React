@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/cityView-React/static/css/main.be58a8d0.css",
+    "main.js": "/cityView-React/static/js/main.24411d79.js",
+    "index.html": "/cityView-React/index.html",
+    "main.be58a8d0.css.map": "/cityView-React/static/css/main.be58a8d0.css.map",
+    "main.24411d79.js.map": "/cityView-React/static/js/main.24411d79.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.be58a8d0.css",
+    "static/js/main.24411d79.js"
+  ]
+}
