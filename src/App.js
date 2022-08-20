@@ -8,23 +8,25 @@ function App() {
     const [images, setImages] = useState([])
     const [bgImage, setBgImage] = useState('')
 
+    // update the title of website
     useEffect(() => {
         document.title = !!bgImage && bgImage?.des && bgImage.des ? bgImage.des.charAt(0).toUpperCase() + bgImage.des.slice(1) : 'Loading...'
     }, [bgImage])
 
+    // set background image at initialization
     useEffect(() => {images.length > 0 && setBgImage(images[0])}, [images])
 
-    const updateImages = newImages => setImages(newImages)
-    const updateMainBG = image => {
-        console.log('new background image set by ImageList component', image)
-        setBgImage(image)
-    }
+    // callback function to update the image list of thumbnail
+    const cbUpdateImages = newImages => setImages(newImages)
+
+    // callback function to update the background image
+    const cbUpdateMainBG = image => setBgImage(image)
 
     return <div className="App" style={{background: bgImage && bgImage.regular && `url('${bgImage.regular}') no-repeat center center/cover fixed`}}>
         <div className='searchBar'>
-            <CityInput cbUpdateImages={updateImages}/>
+            <CityInput cbUpdateImages={cbUpdateImages}/>
         </div>
-        <ImageList images={images} updateMainBG={updateMainBG}/>
+        <ImageList images={images} cbUpdateMainBG={cbUpdateMainBG}/>
     </div>
 
 }

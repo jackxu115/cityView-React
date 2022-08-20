@@ -17,10 +17,12 @@ export const CityInput = ({cbUpdateImages}) => {
         })()
     }
 
+    // fetch the default city at initialization
     useEffect(() => {
         fetchCity(DefaultCity)
     }, [])
 
+    // fetch city information
     const fetchCity = newCity =>
         // axios--3rd party library
         // https://www.npmjs.com/package/axios
@@ -34,9 +36,8 @@ export const CityInput = ({cbUpdateImages}) => {
                 Authorization: `Client-ID ${AccessKey}`
             }
         }).then(response => {
-            console.log('raw data', response)
+            // Destructure the response
             let {data: {results}} = response
-            console.log('result--->', results)
             // reorganize the data structure, make one array like this:
             // [
             //     {des:'sunshine', regular: 'http..', thumb: 'http..'},
@@ -50,6 +51,7 @@ export const CityInput = ({cbUpdateImages}) => {
                 thumb: item.urls.thumb
             }))
 
+            // call back function to update the image list of thumbnail
             cbUpdateImages(imageList)
 
 
@@ -62,6 +64,7 @@ export const CityInput = ({cbUpdateImages}) => {
             className='inputCity'
             type="text"
             placeholder="Search City here..."
+            // add event listener
             onKeyDown={cbInput}
         />
     </>
