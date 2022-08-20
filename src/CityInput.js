@@ -1,11 +1,10 @@
 import {useState} from "react";
 import {AccessKey, BasicUrl, DefaultCity} from "./consts";
 import axios from "axios";
+import './CityInput.css'
 
-export const CityInput = () => {
+export const CityInput = ({cbUpdateImages}) => {
     const [city, setCity] = useState(DefaultCity)
-    const [images, setImages] = useState([])
-
     // event handler for key down
     const cbInput = event => {
         let newCity = event.target.value.trim().toLowerCase()
@@ -14,16 +13,16 @@ export const CityInput = () => {
         (() => {
             setCity(newCity) // async
             console.log('new city input: ', city, newCity)
-            fetchCity()
+            fetchCity(newCity)
         })()
     }
 
-    const fetchCity = () => {
+    const fetchCity = newCity =>
         // axios--3rd party library
         // https://www.npmjs.com/package/axios
         axios.get(BasicUrl, {
             params: {
-                query: city,
+                query: newCity,
                 orientation: 'landscape',
 
             },
@@ -47,22 +46,16 @@ export const CityInput = () => {
                 thumb: item.urls.thumb
             }))
 
-            console.log('tidied data:', imageList)
-            setImages(imageList)
+            cbUpdateImages(imageList)
 
 
         }).catch(error => console.log('fetch city http error!', error))
 
-    }
 
-    return (
-        <div>
-            <input
-                type="text"
-                placeholder="Search City here..."
-                onKeyDown={cbInput}
-            />
-            {JSON.stringify(images)}
-        </div>
-    )
+    return <input
+        className='inputCity'
+        type="text"
+        placeholder="Search City here..."
+        onKeyDown={cbInput}
+    />
 }
