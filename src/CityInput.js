@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {AccessKey, BasicUrl, DefaultCity} from "./consts";
 import axios from "axios";
 import './CityInput.css'
@@ -16,6 +16,10 @@ export const CityInput = ({cbUpdateImages}) => {
             fetchCity(newCity)
         })()
     }
+
+    useEffect(() => {
+        fetchCity(DefaultCity)
+    }, [])
 
     const fetchCity = newCity =>
         // axios--3rd party library
@@ -52,10 +56,13 @@ export const CityInput = ({cbUpdateImages}) => {
         }).catch(error => console.log('fetch city http error!', error))
 
 
-    return <input
-        className='inputCity'
-        type="text"
-        placeholder="Search City here..."
-        onKeyDown={cbInput}
-    />
+    return <>
+        <h2 className='cityName'>New City: {city}</h2>
+        <input
+            className='inputCity'
+            type="text"
+            placeholder="Search City here..."
+            onKeyDown={cbInput}
+        />
+    </>
 }
