@@ -1,31 +1,24 @@
-// import './App.scss';
-// import {CityInput} from "./CityInput";
-// import {ImageList} from "./ImageList";
-// import {useEffect, useState} from "react";
 import {Home} from "./Home";
+import {Navigate, Route, Routes} from "react-router-dom";
+import {Picture} from "./Picture";
+import {useEffect, useState} from "react";
+
 
 function App() {
 
-    // const [images, setImages] = useState([])
-    // const [bgImage, setBgImage] = useState('')
-    //
-    // // update the title of website
-    // useEffect(() => {
-    //     document.title = !!bgImage && bgImage?.des && bgImage.des ? bgImage.des.charAt(0).toUpperCase() + bgImage.des.slice(1) : 'Loading...'
-    // }, [bgImage])
-    //
-    // // set background image at initialization
-    // useEffect(() => {images.length > 0 && setBgImage(images[0])}, [images])
-    //
-    // // callback function to update the image list of thumbnail
-    // const cbUpdateImages = newImages => setImages(newImages)
-    //
-    // // callback function to update the background image
-    // const cbUpdateMainBG = image => setBgImage(image)
+    const [image, setImage] = useState('')
+
+    const cbUpdateHomeImage = image => setImage(image)
 
     return (
         <div className="App">
-            <Home />
+            <Routes>
+                <Route path="/home" element={<Home cbUpdateHomeImage={cbUpdateHomeImage}/>} />
+                <Route path="/picture/:id" element={<Picture image={image}/>} />
+                <Route path="/" element={<Navigate to="home" />} />
+                {/*<Route path="/picture/:id"*/}
+                {/*       element={redirect ? <Navigate to="/home"/> : <Picture />} />*/}
+            </Routes>
         </div>
     )
 }
