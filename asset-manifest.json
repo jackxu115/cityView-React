@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/cityView-React/static/css/main.cb0abb97.css",
-    "main.js": "/cityView-React/static/js/main.52c75d4a.js",
+    "main.js": "/cityView-React/static/js/main.bed32e3e.js",
     "index.html": "/cityView-React/index.html",
     "main.cb0abb97.css.map": "/cityView-React/static/css/main.cb0abb97.css.map",
-    "main.52c75d4a.js.map": "/cityView-React/static/js/main.52c75d4a.js.map"
+    "main.bed32e3e.js.map": "/cityView-React/static/js/main.bed32e3e.js.map"
   },
   "entrypoints": [
     "static/css/main.cb0abb97.css",
-    "static/js/main.52c75d4a.js"
+    "static/js/main.bed32e3e.js"
   ]
 }
