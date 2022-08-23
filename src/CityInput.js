@@ -5,6 +5,7 @@ import './CityInput.css'
 
 export const CityInput = ({cbUpdateImages}) => {
     const [city, setCity] = useState(DefaultCity)
+
     // event handler for key down
     const cbInput = event => {
         let newCity = event.target.value.trim().toLowerCase()
