@@ -15,7 +15,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home cbUpdateHomeImage={cbUpdateHomeImage}/>} />
                 <Route path="/picture/:id" element={<Picture image={image}/>} />
-                {/*<Route path="/home" element={<Navigate to="ho" />} />*/}
+                {/*<Route path="/home" element={<Navigate to="/" />} />*/}
                 {/*<Route path="/picture/:id"*/}
                 {/*       element={redirect ? <Navigate to="/home"/> : <Picture />} />*/}
             </Routes>

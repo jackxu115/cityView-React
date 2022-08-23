@@ -1,4 +1,4 @@
-import {useNavigate} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import './Picture.scss'
 
 export const Picture = ({image}) => {
@@ -13,7 +13,7 @@ export const Picture = ({image}) => {
     return (
         <div className="Picture" style={{background: `url(${image.regular}) no-repeat center center/cover fixed`}}>
             <h2>{image.des}</h2>
-            <button onClick={() => navigate(-1)}>Home</button>
+            <button onClick={() => navigate("/")}>Home</button>
         </div>
     )
 }
