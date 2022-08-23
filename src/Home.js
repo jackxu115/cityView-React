@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 export const Home = ({cbUpdateHomeImage}) => {
     const [images, setImages] = useState([])
     const [bgImage, setBgImage] = useState('')
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(null)
     const [redirect, setRedirect] = useState(false)
 
     let navigate = useNavigate()

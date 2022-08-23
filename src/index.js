@@ -7,7 +7,7 @@ import {BrowserRouter} from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <BrowserRouter basename={window.location.pathname || ''}>
+      <BrowserRouter basename="/cityView-React">
           <App />
       </BrowserRouter>
   </React.StrictMode>
